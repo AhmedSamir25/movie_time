@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movietime/core/router.dart';
 
 void main() {
   runApp(const MovieTime());
@@ -9,8 +10,8 @@ class MovieTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return  MaterialApp.router(
+      routerConfig : AppRouter.router,
     );
   }
 }
