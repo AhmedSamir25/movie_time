@@ -24,10 +24,13 @@ class HomeViewBody extends StatelessWidget {
           ),
           SizedBox(
             height: 215.h,
-            child: const ListBuilderHome(),
+            child: const ListBuilderHome(
+            
+            ),
           ),
           const Expanded(
-            child: HomeTabs()),
+            child: HomeTabs(
+            )),
         ],
       ),
     );

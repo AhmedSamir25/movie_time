@@ -4,10 +4,16 @@ import 'package:movietime/core/utils/color.dart';
 
 abstract class StyleText {
   static TextStyle textStyle15 = TextStyle(
-    fontSize: 15.sp
+    fontSize: 15.sp,
+    color: textAppColor,
   );
-  static TextStyle textStyle20 = const TextStyle(
-    fontSize: 20,
-    color: textColor,
+  static TextStyle textStyle20 =  TextStyle(
+    fontSize: 20.sp,
+    color: textAppColor,
+  );
+  static TextStyle textStyle40 =  TextStyle(
+    fontSize: 45.sp,
+    color: numberListColor,
+    fontWeight: FontWeight.bold,
   );
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageList extends StatelessWidget {
-  const ImageList({super.key});
- 
+  const ImageList({super.key, required this.imageUrl});
+  final String imageUrl; 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +12,8 @@ class ImageList extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.amberAccent,
         borderRadius: BorderRadius.circular(16),
-        image: const DecorationImage(image: AssetImage('assets/image/test.png',),
+        image: DecorationImage(image:
+        NetworkImage('https://www.themoviedb.org/t/p/w220_and_h330_face$imageUrl'),
         fit: BoxFit.fill,
 
         )
