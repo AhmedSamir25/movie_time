@@ -84,4 +84,29 @@ class HomeRepoImpl extends HomeRepo {
       );
     }
   }
+  
+  @override
+  Future<Either<Failure, List<MovieModel>>> fetchUpComing() async{
+    try {
+      var data = await apiService.get(endPoint: 'upcoming', numpage: 1);
+      List<MovieModel> movies = [];
+      for (var results in data['results']) {
+        try {
+          movies.add(MovieModel.fromJson(results));
+        } catch (e) {
+          movies.add(MovieModel.fromJson(results));
+        }
+      }
+      return right(movies);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailure(e.toString()),
+      );
+    }
+  }
 }

@@ -6,4 +6,5 @@ abstract class HomeRepo {
   Future<Either<Failure, List<MovieModel>>> fetchTrendMovies();
   Future<Either<Failure, List<MovieModel>>> fetchPopularMovies();
   Future<Either<Failure, List<MovieModel>>> fetchTopRated();
+  Future<Either<Failure, List<MovieModel>>> fetchUpComing();
 }

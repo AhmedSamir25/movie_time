@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movietime/core/utils/color.dart';
+
 
 class SearchFromField extends StatelessWidget {
   const SearchFromField({super.key});
@@ -8,12 +8,17 @@ class SearchFromField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        focusColor: appColor,
+        focusColor: Colors.white,
         hintText: 'Search ?',
         suffixIcon: const Icon(Icons.search),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16)
-      )
+        borderSide: const BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      fillColor: Colors.white,
+      enabledBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white),
+      ),
       ),
       
     );
