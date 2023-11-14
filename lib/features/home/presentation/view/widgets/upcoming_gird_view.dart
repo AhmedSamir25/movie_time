@@ -83,6 +83,9 @@ class _TopRatedGridViewState extends State<UpcomingGridView>
               margin: EdgeInsets.only(left: 10.w, bottom: 7.h),
               child: ImageList(
                 imageUrl: movies[index].posterPath,
+                heightImage: 100.h,
+                widthImage: 100.w,
+                radius: 16,
               ),
             ),
             itemCount: movies.length,

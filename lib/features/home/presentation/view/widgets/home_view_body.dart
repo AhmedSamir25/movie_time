@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movietime/features/home/presentation/view/widgets/custom_appbar.dart';
 import 'package:movietime/features/home/presentation/view/widgets/home_tabs.dart';
-import 'package:movietime/features/home/presentation/view/widgets/list_builder_home.dart';
+import 'package:movietime/features/home/presentation/view/widgets/trend_listview.dart';
 import 'package:movietime/features/home/presentation/view/widgets/search_from_field.dart';
 
 class HomeViewBody extends StatelessWidget {

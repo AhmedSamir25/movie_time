@@ -21,28 +21,28 @@ class MovieTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => TrendMoviesCubit(
-                getIt.get<HomeRepoImpl>(),
-              )..fetchTrendMovies(),
-            ),
-            BlocProvider(
-              create: (context) => TopRatedCubit(
-                getIt.get<HomeRepoImpl>(),
-              )..fetchTopRated(),
-            ),
-            BlocProvider(
-              create: (context) => PouplerMoviesCubit(
-                getIt.get<HomeRepoImpl>(),
-              )..fetchPopularMovies(),
-            ),
-            BlocProvider(
-              create: (context) => UpcomingMovieCubit(
-                getIt.get<HomeRepoImpl>(),
-              )..fetchUpComing(),
-            ),
-          ],
+      providers: [
+        BlocProvider(
+          create: (context) => TrendMoviesCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchTrendMovies(),
+        ),
+        BlocProvider(
+          create: (context) => TopRatedCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchTopRated(),
+        ),
+        BlocProvider(
+          create: (context) => PouplerMoviesCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchPopularMovies(),
+        ),
+        BlocProvider(
+          create: (context) => UpcomingMovieCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchUpComing(),
+        ),
+      ],
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,

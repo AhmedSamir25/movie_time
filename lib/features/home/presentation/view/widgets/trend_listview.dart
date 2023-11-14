@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movietime/core/router.dart';
 import 'package:movietime/core/utils/text_style.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home/presentation/manager/trend_cubit/trendmovie_cubit.dart';
 import 'package:movietime/features/home/presentation/view/widgets/image_list.dart';
-
 
 class ListBuilderHome extends StatelessWidget {
   const ListBuilderHome({
@@ -19,23 +20,34 @@ class ListBuilderHome extends StatelessWidget {
       builder: (context, state) {
         if (state is TrendMoviesSuccess) {
           return ListView.builder(
-            itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(right: 10.0.w),
-                child: Stack(
-                  children: [
-                    ImageList(
-                      imageUrl: state.movies[index].posterPath,
-                    ),
-                    Positioned(
-                      top: 138.h,
-                      left: 13.w,
-                      child: Text(
-                        (index + 1).toString(),
-                        style: StyleText.textStyle40,
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push(
+                  AppRouter.detailsView,
+                  extra: state.movies[index],
+                );
+              },
+              child: Padding(
+                  padding: EdgeInsets.only(right: 10.0.w),
+                  child: Stack(
+                    children: [
+                      ImageList(
+                        imageUrl: state.movies[index].posterPath,
+                        heightImage:200.h ,
+                        widthImage:200.w ,
+                        radius: 16,
                       ),
-                    ),
-                  ],
-                )),
+                      Positioned(
+                        top: 138.h,
+                        left: 13.w,
+                        child: Text(
+                          (index + 1).toString(),
+                          style: StyleText.textStyle40,
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
             itemCount: 20,
             scrollDirection: Axis.horizontal,
           );
