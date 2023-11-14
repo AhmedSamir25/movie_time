@@ -14,7 +14,8 @@ class UpcomingGridView extends StatefulWidget {
   State<UpcomingGridView> createState() => _TopRatedGridViewState();
 }
 
-class _TopRatedGridViewState extends State<UpcomingGridView> with AutomaticKeepAliveClientMixin {
+class _TopRatedGridViewState extends State<UpcomingGridView>
+    with AutomaticKeepAliveClientMixin {
   late final ScrollController _scrollController;
   int nextPage = 1;
   bool isLoading = false;
@@ -38,7 +39,8 @@ class _TopRatedGridViewState extends State<UpcomingGridView> with AutomaticKeepA
         setState(() {
           isLoading = true;
         });
-        await BlocProvider.of<UpcomingMovieCubit>(context).fetchUpComing(numpage: nextPage++);
+        await BlocProvider.of<UpcomingMovieCubit>(context)
+            .fetchUpComing(numpage: nextPage++);
         setState(() {
           isLoading = false;
         });
@@ -48,12 +50,15 @@ class _TopRatedGridViewState extends State<UpcomingGridView> with AutomaticKeepA
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // يُحسن هذا السطر الأداء
+    super.build(context);
     return BlocConsumer<UpcomingMovieCubit, UpcomingMovieState>(
       listener: (context, state) {
-        if (state is UpcomingMovieSuccess ) {
-          movies.addAll(state.movies);
-          // قم بتحديث isLoading إلى false بعد إضافة البيانات
+        if (state is UpcomingMovieSuccess) {
+          for (var movie in state.movies) {
+            if (!movies.contains(movie)) {
+              movies.add(movie);
+            }
+          }
           isLoading = false;
         }
         if (state is UpcomingMovieFailurePage) {

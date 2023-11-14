@@ -14,7 +14,8 @@ class TopRatedGridView extends StatefulWidget {
   State<TopRatedGridView> createState() => _TopRatedGridViewState();
 }
 
-class _TopRatedGridViewState extends State<TopRatedGridView> with AutomaticKeepAliveClientMixin {
+class _TopRatedGridViewState extends State<TopRatedGridView>
+    with AutomaticKeepAliveClientMixin {
   late final ScrollController _scrollController;
   int nextPage = 1;
   bool isLoading = false;
@@ -38,7 +39,8 @@ class _TopRatedGridViewState extends State<TopRatedGridView> with AutomaticKeepA
         setState(() {
           isLoading = true;
         });
-        await BlocProvider.of<TopRatedCubit>(context).fetchTopRated(numpage: nextPage++);
+        await BlocProvider.of<TopRatedCubit>(context)
+            .fetchTopRated(numpage: nextPage++);
         setState(() {
           isLoading = false;
         });
@@ -48,12 +50,16 @@ class _TopRatedGridViewState extends State<TopRatedGridView> with AutomaticKeepA
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // يُحسن هذا السطر الأداء
+    super.build(context);
     return BlocConsumer<TopRatedCubit, TopRatedState>(
       listener: (context, state) {
-        if (state is TopRatedSuccess ) {
-          movies.addAll(state.movies);
-          // قم بتحديث isLoading إلى false بعد إضافة البيانات
+        if (state is TopRatedSuccess) {
+          for (var movie in state.movies) {
+            if (!movies.contains(movie)) {
+              movies.add(movie);
+            }
+          }
+
           isLoading = false;
         }
         if (state is TopRatedFailurePage) {
@@ -103,15 +109,3 @@ class _TopRatedGridViewState extends State<TopRatedGridView> with AutomaticKeepA
     );
   }
 }
-
-
-/*
-if (state is TopRatedSuccess) {
-for (var movie in state.movies) {
-    if (!movies.contains(movie)) {
-      movies.add(movie);
-    }
-  }
-}
-
- */

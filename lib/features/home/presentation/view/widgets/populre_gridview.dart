@@ -48,12 +48,11 @@ class _TopRatedGridViewState extends State<PopularGridView> with AutomaticKeepAl
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // يُحسن هذا السطر الأداء
+    super.build(context); 
     return BlocConsumer<PouplerMoviesCubit, PouplerMoviesState>(
       listener: (context, state) {
         if (state is PouplerMoviesSuccess) {
           movies.addAll(state.movies);
-          // قم بتحديث isLoading إلى false بعد إضافة البيانات
           isLoading = false;
         }
         if (state is PouplerMoviesFailurePage) {
@@ -81,6 +80,7 @@ class _TopRatedGridViewState extends State<PopularGridView> with AutomaticKeepAl
               ),
             ),
             itemCount: movies.length,
+            
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
