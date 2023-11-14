@@ -13,7 +13,7 @@ abstract class StyleText {
   );
   static TextStyle textStyle40 =  TextStyle(
     fontSize: 45.sp,
-    color: numberListColor,
+    color: Colors.amberAccent,
     fontWeight: FontWeight.bold,
   );
 }

@@ -35,10 +35,10 @@ class HomeRepoImpl extends HomeRepo {
 
 
 
-  @override
-  Future<Either<Failure, List<MovieModel>>> fetchTopRated() async {
+   @override
+  Future<Either<Failure, List<MovieModel>>> fetchTopRated({int numpage = 1}) async {
     try {
-      var data = await apiService.get(endPoint: 'top_rated', numpage: 1);
+      var data = await apiService.get(endPoint: 'top_rated', numpage: numpage);
       List<MovieModel> movies = [];
       for (var results in data['results']) {
         try {
@@ -61,9 +61,9 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<MovieModel>>> fetchPopularMovies() async {
+  Future<Either<Failure, List<MovieModel>>> fetchPopularMovies({int numpage = 1}) async {
     try {
-      var data = await apiService.get(endPoint: 'popular', numpage: 1);
+      var data = await apiService.get(endPoint: 'popular', numpage: numpage);
       List<MovieModel> movies = [];
       for (var results in data['results']) {
         try {
@@ -86,9 +86,9 @@ class HomeRepoImpl extends HomeRepo {
   }
   
   @override
-  Future<Either<Failure, List<MovieModel>>> fetchUpComing() async{
+  Future<Either<Failure, List<MovieModel>>> fetchUpComing({int numpage = 1}) async{
     try {
-      var data = await apiService.get(endPoint: 'upcoming', numpage: 1);
+      var data = await apiService.get(endPoint: 'upcoming', numpage: numpage);
       List<MovieModel> movies = [];
       for (var results in data['results']) {
         try {

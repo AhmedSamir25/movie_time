@@ -10,10 +10,21 @@ sealed class TopRatedState extends Equatable {
 final class TopRatedInitial extends TopRatedState {}
 
 final class TopRatedFailure extends TopRatedState {
-   final String errMessage;
+  final String errMessage;
 
   const TopRatedFailure(this.errMessage);
 }
+
+final class TopRatedFailurePage extends TopRatedState {
+  final String errMessage;
+
+  const TopRatedFailurePage(this.errMessage);
+}
+
+final class TopRatedLoading extends TopRatedState {}
+
+final class TopRatedLoadingpage extends TopRatedState {}
+
 final class TopRatedSuccess extends TopRatedState {
   final List<MovieModel> movies;
 

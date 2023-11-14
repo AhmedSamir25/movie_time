@@ -5,7 +5,7 @@ import 'package:movietime/core/router.dart';
 import 'package:movietime/core/services/service_locator.dart';
 import 'package:movietime/core/utils/color.dart';
 import 'package:movietime/features/home/data/repository/home_repo_impl.dart';
-import 'package:movietime/features/home/presentation/manager/movie_bloc/poupler_movies_cubit.dart';
+import 'package:movietime/features/home/presentation/manager/poup;er_cubit/poupler_movies_cubit.dart';
 import 'package:movietime/features/home/presentation/manager/toprated_cubit/toprated_cubit.dart';
 import 'package:movietime/features/home/presentation/manager/trend_cubit/trendmovie_cubit.dart';
 import 'package:movietime/features/home/presentation/manager/upcoming_movie/upcoming_movie_cubit.dart';

@@ -9,10 +9,19 @@ part 'toprated_state.dart';
 class TopRatedCubit extends Cubit<TopRatedState> {
   TopRatedCubit(this.homeRepo) : super(TopRatedInitial());
   final HomeRepo homeRepo;
-  Future<void> fetchTopRated() async {
-    var result = await homeRepo.fetchTopRated();
+  Future<void> fetchTopRated({int numpage = 1}) async {
+    if (numpage == 1) {
+      emit(TopRatedLoading());
+    } else {
+      emit(TopRatedLoadingpage());
+    }
+    var result = await homeRepo.fetchTopRated(numpage: numpage);
     result.fold((failure) {
-      emit(TopRatedFailure(failure.errMessage));
+      if (numpage == 1) {
+        emit(TopRatedFailure(failure.errMessage));
+      } else {
+        emit(TopRatedFailurePage(failure.errMessage));
+      }
     }, (movies) {
       emit(TopRatedSuccess(movies));
     });

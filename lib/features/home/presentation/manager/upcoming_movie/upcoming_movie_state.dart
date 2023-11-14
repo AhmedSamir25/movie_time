@@ -8,23 +8,25 @@ sealed class UpcomingMovieState extends Equatable {
 }
 
 final class UpcomingMovieInitial extends UpcomingMovieState {}
-sealed class TopRatedState extends Equatable {
-  const TopRatedState();
 
-  @override
-  List<Object> get props => [];
-
-}
-  final class UpcomingMovieFailure extends UpcomingMovieState {
+final class UpcomingMovieFailure extends UpcomingMovieState {
   final String errMessage;
 
   const UpcomingMovieFailure(this.errMessage);
 }
+
+final class UpcomingMovieFailurePage extends UpcomingMovieState {
+  final String errMessage;
+
+  const UpcomingMovieFailurePage(this.errMessage);
+}
+
+final class UpcomingMovieLoading extends UpcomingMovieState {}
+
+final class UpcomingMovieLoadingpage extends UpcomingMovieState {}
+
 final class UpcomingMovieSuccess extends UpcomingMovieState {
   final List<MovieModel> movies;
 
   const UpcomingMovieSuccess(this.movies);
 }
-
-
-

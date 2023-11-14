@@ -12,6 +12,7 @@ class ListBuilderHome extends StatelessWidget {
   const ListBuilderHome({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TrendMoviesCubit, TrendMoviesState>(
@@ -35,7 +36,7 @@ class ListBuilderHome extends StatelessWidget {
                     ),
                   ],
                 )),
-            itemCount: 10,
+            itemCount: 20,
             scrollDirection: Axis.horizontal,
           );
         } else if (state is TrendMoviesFailure) {
