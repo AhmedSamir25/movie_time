@@ -17,4 +17,10 @@ class ApiService {
         '${Strings.buseUrl}/trending/movie/day?language=en-U&api_key=${Strings.apiKey}');
     return response.data ;
   }
+
+      Future<Map<String, dynamic>> getcirdets({required int id,}) async {
+    var response = await _dio.get(
+        'https://api.themoviedb.org/3/movie/$id/credits?language=en-US&api_key=${Strings.apiKey}');
+    return response.data ;
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/features/home_detils/presentation/view/widgets/cast_gridview.dart';
 import 'package:movietime/features/home_detils/presentation/view/widgets/contect_tabs.dart';
 
 class HomeDetailsTabs extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomeDetailsTabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Padding(
         padding:  EdgeInsets.only(top: 25.h,left: 20,right: 20),
         child: Column(
@@ -21,7 +22,6 @@ class HomeDetailsTabs extends StatelessWidget {
               indicatorColor: lineTabColor,
               tabs: const [
                 Tab(text: 'About'),
-                Tab(text: 'Reviews'),
                 Tab(text: 'cast'),
               ],
             ),
@@ -31,8 +31,7 @@ class HomeDetailsTabs extends StatelessWidget {
               child:  TabBarView(
                 children: [
                 ContectTabs(aboutMovie:aboutMovie ),
-                const ContectTabs(aboutMovie: ''),
-                const ContectTabs(aboutMovie: ''),
+                const CastGridView(),
                 ],
               ),
             ),
