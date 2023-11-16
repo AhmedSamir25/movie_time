@@ -9,8 +9,7 @@ class CoverNameMovie extends StatelessWidget {
   final String nameMovie;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return SizedBox(
       height: 240.h,
       child: Stack(
         children: [

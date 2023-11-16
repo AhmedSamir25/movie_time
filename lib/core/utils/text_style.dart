@@ -3,6 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movietime/core/utils/color.dart';
 
 abstract class StyleText {
+   static TextStyle textStyle13 = TextStyle(
+    fontSize: 13.sp,
+    color: textInfoColor,
+    fontWeight: FontWeight.w600
+  );
   static TextStyle textStyle15 = TextStyle(
     fontSize: 15.sp,
     color: textAppColor,
