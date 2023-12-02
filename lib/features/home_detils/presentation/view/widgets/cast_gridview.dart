@@ -21,7 +21,7 @@ class CastGridView extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
           ),
-          itemCount: 20,
+          itemCount: state.cast.length,
         );
         }else if (state is CastMovieFailure){
           return CustomErrorWidget(errMessage: state.errMessage);

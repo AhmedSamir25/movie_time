@@ -12,7 +12,7 @@ class HomeViewDetilsBody extends StatelessWidget {
     return  Column(
       children: [
         CoverNameMovie(
-          imageUrl:movieModel.posterPath,
+          imageUrl:movieModel.posterPath!,
           nameMovie: movieModel.originalTitle,
         ),
         InfoMovie(

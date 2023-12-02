@@ -23,4 +23,10 @@ class ApiService {
         'https://api.themoviedb.org/3/movie/$id/credits?language=en-US&api_key=${Strings.apiKey}');
     return response.data ;
   }
+  
+Future<Map<String, dynamic>> getSearch({required String query}) async {
+    var response = await _dio.get(
+        '${Strings.buseUrl}/search/movie?query=$query&api_key=${Strings.apiKey}');
+    return response.data ;
+  }
 }

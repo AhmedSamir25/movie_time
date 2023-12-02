@@ -6,7 +6,9 @@ import 'package:movietime/features/home/presentation/view/widgets/toprated_gird_
 import 'package:movietime/features/home/presentation/view/widgets/upcoming_gird_view.dart';
 
 class HomeTabs extends StatelessWidget {
-  const HomeTabs({super.key, });
+  const HomeTabs({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -26,13 +28,15 @@ class HomeTabs extends StatelessWidget {
           ),
           SizedBox(
             width: double.maxFinite,
-            height: 250.h,
-            child: const TabBarView(
-              children: [
-              UpcomingGridView(),
-              TopRatedGridView(),
-              PopularGridView(),
-              ],
+            height: 260.h,
+            child: const Expanded(
+              child:  TabBarView(
+                children: [
+                  UpcomingGridView(),
+                  TopRatedGridView(),
+                  PopularGridView(),
+                ],
+              ),
             ),
           ),
         ],

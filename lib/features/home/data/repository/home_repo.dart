@@ -7,4 +7,5 @@ abstract class HomeRepo {
   Future<Either<Failure, List<MovieModel>>> fetchPopularMovies({int numpage});
   Future<Either<Failure, List<MovieModel>>> fetchTopRated({int numpage});
   Future<Either<Failure, List<MovieModel>>> fetchUpComing({int numpage});
+  Future<Either<Failure, List<MovieModel>>> fetchSearch({required String query});
 }

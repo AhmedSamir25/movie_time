@@ -14,7 +14,7 @@ class CastInof extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage('https://www.themoviedb.org/t/p/w220_and_h330_face$imageUrl',),
+            backgroundImage: NetworkImage(imageUrl),
             radius: 45,
           ),
           SizedBox(height: 15.h,),

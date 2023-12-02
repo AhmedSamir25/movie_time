@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movietime/core/router.dart';
+import 'package:movietime/core/router/router.dart';
 import 'package:movietime/core/utils/text_style.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
@@ -32,7 +32,7 @@ class ListBuilderHome extends StatelessWidget {
                   child: Stack(
                     children: [
                       ImageList(
-                        imageUrl: state.movies[index].posterPath,
+                        imageUrl: state.movies[index].posterPath!,
                         heightImage:200.h ,
                         widthImage:200.w ,
                         radius: 16,

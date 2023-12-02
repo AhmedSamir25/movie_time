@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movietime/core/router.dart';
+import 'package:movietime/core/router/router.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home/data/model/movie_model.dart';
@@ -19,7 +19,7 @@ class TopRatedGridView extends StatefulWidget {
 class _TopRatedGridViewState extends State<TopRatedGridView>
     with AutomaticKeepAliveClientMixin {
   late final ScrollController _scrollController;
-  int nextPage = 1;
+  int nextPage = 2;
   bool isLoading = false;
   List<MovieModel> movies = [];
 
@@ -46,6 +46,9 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
         setState(() {
           isLoading = false;
         });
+        if (movies.length < 11) {
+          movies.removeRange(0, 10);
+        }
       }
     }
   }
@@ -56,14 +59,9 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
     return BlocConsumer<TopRatedCubit, TopRatedState>(
       listener: (context, state) {
         if (state is TopRatedSuccess) {
-          for (var movie in state.movies) {
-            if (!movies.contains(movie)) {
-              movies.add(movie);
-            }
-          }
-
-          isLoading = false;
+          movies.addAll(state.movies);
         }
+        isLoading = false;
         if (state is TopRatedFailurePage) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -84,35 +82,36 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
               onTap: () {
                 GoRouter.of(context).push(
                   AppRouter.detailsView,
-                  extra: state.movies[index],
+                  extra: movies[index],
                 );
               },
               child: Container(
                 margin: EdgeInsets.only(left: 10.w, bottom: 7.h),
                 child: ImageList(
-                  imageUrl: movies[index].posterPath,
-                  heightImage: 100.h,
-                  widthImage: 100.w,
+                  imageUrl: movies[index].posterPath!,
                   radius: 16,
                 ),
               ),
             ),
             itemCount: movies.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: const  SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 185,
+              crossAxisSpacing: 0.5,
+              mainAxisSpacing: 5,
+              mainAxisExtent: 180,
             ),
           );
         } else if (state is TopRatedFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
           return GridView.builder(
-            itemBuilder: (context, index) => const LoadingShimmer(
-              widthScreen: 0.9,
-              heightScreen: 0.35,
-            ),
+            itemBuilder: (context, index) => const LoadingShimmer(),
             itemCount: movies.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 185,
+              crossAxisSpacing: 0.5,
+              mainAxisSpacing: 5,
+              mainAxisExtent: 180,
             ),
           );
         }

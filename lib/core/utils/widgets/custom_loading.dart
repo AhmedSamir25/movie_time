@@ -3,7 +3,7 @@ import 'package:shimmer/shimmer.dart';
 
 class LoadingShimmer extends StatelessWidget {
   const LoadingShimmer(
-      {super.key, required this.widthScreen, this.heightScreen});
+      {super.key,  this.widthScreen, this.heightScreen});
   final double? widthScreen;
   final double? heightScreen;
   @override

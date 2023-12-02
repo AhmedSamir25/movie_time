@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movietime/core/router.dart';
+import 'package:movietime/core/router/router.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home/data/model/movie_model.dart';
@@ -16,9 +16,10 @@ class PopularGridView extends StatefulWidget {
   State<PopularGridView> createState() => _TopRatedGridViewState();
 }
 
-class _TopRatedGridViewState extends State<PopularGridView> with AutomaticKeepAliveClientMixin {
+class _TopRatedGridViewState extends State<PopularGridView>
+    with AutomaticKeepAliveClientMixin {
   late final ScrollController _scrollController;
-  int nextPage = 1;
+  int nextPage = 2;
   bool isLoading = false;
   List<MovieModel> movies = [];
 
@@ -40,7 +41,8 @@ class _TopRatedGridViewState extends State<PopularGridView> with AutomaticKeepAl
         setState(() {
           isLoading = true;
         });
-        await BlocProvider.of<PouplerMoviesCubit>(context).fetchPopularMovies(numpage: nextPage++);
+        await BlocProvider.of<PouplerMoviesCubit>(context)
+            .fetchPopularMovies(numpage: nextPage++);
         setState(() {
           isLoading = false;
         });
@@ -50,7 +52,7 @@ class _TopRatedGridViewState extends State<PopularGridView> with AutomaticKeepAl
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); 
+    super.build(context);
     return BlocConsumer<PouplerMoviesCubit, PouplerMoviesState>(
       listener: (context, state) {
         if (state is PouplerMoviesSuccess) {
@@ -77,36 +79,36 @@ class _TopRatedGridViewState extends State<PopularGridView> with AutomaticKeepAl
               onTap: () {
                 GoRouter.of(context).push(
                   AppRouter.detailsView,
-                  extra: state.movies[index],
+                  extra: movies[index],
                 );
               },
               child: Container(
                 margin: EdgeInsets.only(left: 10.w, bottom: 7.h),
                 child: ImageList(
-                  imageUrl: movies[index].posterPath,
-                  heightImage: 100.h,
-                  widthImage: 100.w,
+                  imageUrl: movies[index].posterPath!,
                   radius: 16,
                 ),
               ),
             ),
             itemCount: movies.length,
-            
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 185,
+              crossAxisSpacing: 0.5,
+              mainAxisSpacing: 5,
+              mainAxisExtent: 180,
             ),
           );
         } else if (state is PouplerMoviesFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
           return GridView.builder(
-            itemBuilder: (context, index) => const LoadingShimmer(
-              widthScreen: 0.9,
-              heightScreen: 0.35,
-            ),
+            itemBuilder: (context, index) => const LoadingShimmer(),
             itemCount: movies.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 185,
+              crossAxisSpacing: 0.5,
+              mainAxisSpacing: 5,
+              mainAxisExtent: 180,
             ),
           );
         }
