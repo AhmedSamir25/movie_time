@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movietime/core/utils/text_style.dart';
 import 'package:movietime/features/home/presentation/view/widgets/image_list.dart';
 
-class CoverNameMovie extends StatelessWidget {
-  const CoverNameMovie({super.key, required this.imageUrl, required this.nameMovie});
+class CoverNameMovieActor extends StatelessWidget {
+  const CoverNameMovieActor({super.key, required this.imageUrl, required this.nameMovie});
   final String imageUrl;
   final String nameMovie;
   @override

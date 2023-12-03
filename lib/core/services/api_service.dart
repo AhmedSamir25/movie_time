@@ -20,13 +20,18 @@ class ApiService {
 
       Future<Map<String, dynamic>> getcirdets({required int id,}) async {
     var response = await _dio.get(
-        'https://api.themoviedb.org/3/movie/$id/credits?language=en-US&api_key=${Strings.apiKey}');
+        '${Strings.buseUrl}/movie/$id/credits?language=en-US&api_key=${Strings.apiKey}');
     return response.data ;
   }
   
 Future<Map<String, dynamic>> getSearch({required String query}) async {
     var response = await _dio.get(
         '${Strings.buseUrl}/search/movie?query=$query&api_key=${Strings.apiKey}');
+    return response.data ;
+  }
+     Future<Map<String, dynamic>> getprofile({required int id}) async {
+    var response = await _dio.get(
+        '${Strings.buseUrl}/person/$id?language=en-US&api_key=${Strings.apiKey}');
     return response.data ;
   }
 }

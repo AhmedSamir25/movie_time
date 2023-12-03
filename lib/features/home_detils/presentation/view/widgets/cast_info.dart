@@ -22,7 +22,7 @@ class CastInof extends StatelessWidget {
             padding:  EdgeInsets.only(left: 12.0.w),
             child: Text(castName,maxLines: 1,
             style: StyleText.textStyle13.copyWith(color: textAppColor),),
-          )
+          ),
         ],
       ),
     );

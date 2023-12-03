@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:movietime/core/errors/failure.dart';
 import 'package:movietime/core/services/api_service.dart';
 import 'package:movietime/features/home_detils/data/model/cast_model.dart';
+import 'package:movietime/features/home_detils/data/model/profile_actor_model.dart';
 import 'package:movietime/features/home_detils/data/repository/home_details_repo.dart';
 
 class HomeDetailsRepoImpl extends HomeDetailsRepo{
@@ -26,6 +27,21 @@ class HomeDetailsRepoImpl extends HomeDetailsRepo{
       return left(
         ServerFailure(e.toString()),
       );
+    }
+  }
+
+   @override
+  Future<Either<Failure, List<ProfileModel>>> fetchProfile({required int id}) async {
+    try {
+      var data = await apiService.getprofile(id: id);
+      List<ProfileModel> profileList = [];
+      profileList.add(ProfileModel.fromJson(data)); 
+      return right(profileList);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 }

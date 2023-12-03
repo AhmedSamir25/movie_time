@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class CastModel {
   final bool? adult;
   final int? gender;
@@ -38,7 +36,7 @@ class CastModel {
       name: json['name'],
       originalName: json['original_name']??'',
       popularity: json['popularity']??'',
-      profilePath: json['profile_path']??'',
+      profilePath: json['profile_path'] == null ?"https://img.freepik.com/free-photo/surprised-happy-bearded-man-shirt-pointing-away_171337-5021.jpg?w=740&t=st=1701533025~exp=1701533625~hmac=e86cc993f60544d9b39b539993b4a9fcd15f3e6919d481c50a765c7a8570af08":"https://www.themoviedb.org/t/p/w220_and_h330_face${json['profile_path']}",
       castId: json['cast_id'],
       character: json['character'],
       creditId: json['credit_id'],
@@ -49,11 +47,11 @@ class CastModel {
 
 
 
-void main() {
-  var jsonString = '';
-  var jsonData = json.decode(jsonString);
-    List<CastModel> castmovies = [];
-    for (var castData in jsonData['cast']) {
-    castmovies.add(CastModel.fromJson(castData));
-    }
-}
+// void main() {
+//   var jsonString = '';
+//   var jsonData = json.decode(jsonString);
+//     List<CastModel> castmovies = [];
+//     for (var castData in jsonData['cast']) {
+//     castmovies.add(CastModel.fromJson(castData));
+//     }
+// }

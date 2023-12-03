@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movietime/core/router/router.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home_detils/presentation/manager/cast_cubit/cast_cubit.dart';
@@ -14,9 +16,17 @@ class CastGridView extends StatelessWidget {
       builder: (context, state) {
         if(state is CastMovieSuccess){
                   return GridView.builder(
-          itemBuilder: (context, index) => CastInof(
-            imageUrl: state.cast[index].profilePath??'',
-            castName: state.cast[index].name??'Unknow',
+          itemBuilder: (context, index) => GestureDetector(
+            onTap: () {
+              GoRouter.of(context).push(
+                    AppRouter.profileActor,
+                    extra: state.cast[index],
+                  );
+            },
+            child: CastInof(
+              imageUrl: state.cast[index].profilePath!,
+              castName: state.cast[index].name??'Unknow',
+            ),
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
