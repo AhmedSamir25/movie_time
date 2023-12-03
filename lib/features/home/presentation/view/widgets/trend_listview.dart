@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
+import 'package:movietime/core/utils/color.dart';
 import 'package:movietime/core/utils/text_style.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
@@ -33,8 +34,8 @@ class ListBuilderHome extends StatelessWidget {
                     children: [
                       ImageList(
                         imageUrl: state.movies[index].posterPath!,
-                        heightImage:200.h ,
-                        widthImage:200.w ,
+                        heightImage: 200.h,
+                        widthImage: 200.w,
                         radius: 16,
                       ),
                       Positioned(
@@ -42,7 +43,13 @@ class ListBuilderHome extends StatelessWidget {
                         left: 13.w,
                         child: Text(
                           (index + 1).toString(),
-                          style: StyleText.textStyle40,
+                          style: StyleText.textStyle40.copyWith(
+                            fontFamily: 'PT Serif',
+                            foreground: Paint()
+                              ..style = PaintingStyle.stroke
+                              ..strokeWidth = 4.0
+                              ..color = numberListColor,
+                          ),
                         ),
                       ),
                     ],
@@ -56,10 +63,10 @@ class ListBuilderHome extends StatelessWidget {
         } else {
           return ListView.builder(
             itemBuilder: (context, index) => const LoadingShimmer(
-              widthScreen: 0.9,
+              widthScreen: 0.66,
               heightScreen: 0.35,
             ),
-            itemCount: 10,
+            itemCount: 20,
             scrollDirection: Axis.horizontal,
           );
         }

@@ -31,7 +31,12 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(
             height: 15.h,
           ),
-              Text('Trend Now',style:StyleText.textStyle15 ,),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text('Trending Now',style:StyleText.textStyle15 ,
+                
+                ),
+              ),
           SizedBox(
             height: 15.h,
           ),

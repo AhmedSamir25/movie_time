@@ -28,7 +28,7 @@ class HomeTabs extends StatelessWidget {
           ),
           SizedBox(
             width: double.maxFinite,
-            height: 235.h,
+            height: 230.h,
             child: const Expanded(
               child:  TabBarView(
                 children: [
