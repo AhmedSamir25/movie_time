@@ -10,7 +10,7 @@ class CastInof extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(top: 14.0.h),
+      padding: const EdgeInsets.only(top: 14.0),
       child: Column(
         children: [
           CircleAvatar(
@@ -19,9 +19,15 @@ class CastInof extends StatelessWidget {
           ),
           SizedBox(height: 15.h,),
           Padding(
-            padding:  EdgeInsets.only(left: 12.0.w),
-            child: Text(castName,maxLines: 1,
-            style: StyleText.textStyle13.copyWith(color: textAppColor),),
+            padding: const EdgeInsets.only(left: 12.0),
+            child: Container(
+              constraints: const BoxConstraints(
+                maxWidth: 150,
+              ),
+              child: Text(castName,maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: StyleText.textStyle13.copyWith(color: textAppColor),),
+            ),
           ),
         ],
       ),

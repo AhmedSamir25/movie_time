@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
+import 'package:movietime/core/utils/text_style.dart';
 import 'package:movietime/features/home/presentation/view/widgets/custom_appbar.dart';
 import 'package:movietime/features/home/presentation/view/widgets/home_tabs.dart';
 import 'package:movietime/features/home/presentation/view/widgets/search_button.dart';
@@ -13,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 50.h, right: 16.w, left: 16.w),
+      padding: const EdgeInsets.only(top: 50, right: 16, left: 16),
       child: Column(
         children: [
           const CustomHomeAppBar(),
@@ -27,6 +28,10 @@ class HomeViewBody extends StatelessWidget {
                 );
               },
               child: const SearchButton()),
+            SizedBox(
+            height: 15.h,
+          ),
+              Text('Trend Now',style:StyleText.textStyle15 ,),
           SizedBox(
             height: 15.h,
           ),

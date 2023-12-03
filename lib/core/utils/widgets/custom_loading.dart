@@ -4,13 +4,15 @@ import 'package:shimmer/shimmer.dart';
 class LoadingShimmer extends StatelessWidget {
   const LoadingShimmer(
       {super.key,  this.widthScreen, this.heightScreen});
-  final double? widthScreen;
-  final double? heightScreen;
+  final double? widthScreen ;
+  final double? heightScreen ;
   @override
   Widget build(BuildContext context) {
+    double widthx = widthScreen??0;
+    double heightx = heightScreen??0;
     return SizedBox(
-      width: MediaQuery.of(context).size.width * widthScreen!,
-      height: MediaQuery.of(context).size.height * heightScreen!,
+      width: MediaQuery.of(context).size.width * widthx,
+      height: MediaQuery.of(context).size.height * heightx,
       child: Shimmer.fromColors(
         baseColor: Colors.blueGrey,
         highlightColor: Colors.grey,

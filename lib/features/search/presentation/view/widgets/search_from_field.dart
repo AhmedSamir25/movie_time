@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
+import 'package:movietime/core/utils/color.dart';
 
 class SearchFromField extends StatelessWidget {
   const SearchFromField({super.key});
@@ -9,12 +10,15 @@ class SearchFromField extends StatelessWidget {
   Widget build(BuildContext context) {
     late String valueSumbit;
     return TextFormField(
-      onChanged: (value) {
+      onFieldSubmitted: (value) {
         valueSumbit = value;
         GoRouter.of(context).push(
           AppRouter.searchresults,
           extra: valueSumbit,
         );
+      },
+      onChanged: (value) {
+        valueSumbit = value;
       },
       decoration: InputDecoration(
         hintText: 'Search ?',
@@ -25,13 +29,13 @@ class SearchFromField extends StatelessWidget {
               extra: valueSumbit,
             );
           },
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.search,color: textAppColor,),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+          borderSide: BorderSide(color: textAppColor),
         ),
       ),
     );

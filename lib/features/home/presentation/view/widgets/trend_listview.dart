@@ -28,7 +28,7 @@ class ListBuilderHome extends StatelessWidget {
                 );
               },
               child: Padding(
-                  padding: EdgeInsets.only(right: 10.0.w),
+                  padding: const EdgeInsets.only(right: 12.0),
                   child: Stack(
                     children: [
                       ImageList(

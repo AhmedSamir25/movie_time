@@ -19,7 +19,7 @@ class SearchButton extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text('Search',
-              style: StyleText.textStyle15.copyWith(color: Colors.black)),
+              style: StyleText.textStyle15.copyWith(color: textButton)),
             ),
           ),
         );

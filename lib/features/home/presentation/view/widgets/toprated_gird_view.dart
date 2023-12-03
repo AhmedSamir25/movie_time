@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
+import 'package:movietime/core/utils/color.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home/data/model/movie_model.dart';
@@ -46,9 +46,6 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
         setState(() {
           isLoading = false;
         });
-        if (movies.length < 11) {
-          movies.removeRange(0, 10);
-        }
       }
     }
   }
@@ -60,22 +57,24 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
       listener: (context, state) {
         if (state is TopRatedSuccess) {
           movies.addAll(state.movies);
+          isLoading = false;
         }
-        isLoading = false;
         if (state is TopRatedFailurePage) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: Colors.red,
+              backgroundColor:errorColor,
               content: Text(
                 state.errMessage,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: textAppColor),
               ),
             ),
           );
         }
       },
       builder: (context, state) {
-        if (state is TopRatedSuccess) {
+        if (state is TopRatedSuccess ||
+            state is TopRatedFailurePage ||
+            state is TopRatedLoadingpage) {
           return GridView.builder(
             controller: _scrollController,
             itemBuilder: (context, index) => GestureDetector(
@@ -86,7 +85,7 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
                 );
               },
               child: Container(
-                margin: EdgeInsets.only(left: 10.w, bottom: 7.h),
+                margin:const EdgeInsets.only(left: 10, bottom: 7),
                 child: ImageList(
                   imageUrl: movies[index].posterPath!,
                   radius: 16,
@@ -94,7 +93,7 @@ class _TopRatedGridViewState extends State<TopRatedGridView>
               ),
             ),
             itemCount: movies.length,
-            gridDelegate: const  SliverGridDelegateWithMaxCrossAxisExtent(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 185,
               crossAxisSpacing: 0.5,
               mainAxisSpacing: 5,

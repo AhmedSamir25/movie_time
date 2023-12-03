@@ -34,7 +34,7 @@ class CoverNameMovieActor extends StatelessWidget {
                   radius: 16,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 20.0.h,left: 12.w),
+                  padding: const EdgeInsets.only(top: 22.0,left: 12),
                   child: Text(nameMovie,style: StyleText.textStyle20,),
                 )
               ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
+import 'package:movietime/core/utils/color.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home/data/model/movie_model.dart';
@@ -62,17 +62,19 @@ class _TopRatedGridViewState extends State<PopularGridView>
         if (state is PouplerMoviesFailurePage) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: Colors.red,
+              backgroundColor: errorColor,
               content: Text(
                 state.errMessage,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: textAppColor),
               ),
             ),
           );
         }
       },
       builder: (context, state) {
-        if (state is PouplerMoviesSuccess) {
+        if (state is PouplerMoviesSuccess ||
+            state is PouplerMoviesFailurePage ||
+            state is PouplerMoviesLoadingpage) {
           return GridView.builder(
             controller: _scrollController,
             itemBuilder: (context, index) => GestureDetector(
@@ -83,7 +85,7 @@ class _TopRatedGridViewState extends State<PopularGridView>
                 );
               },
               child: Container(
-                margin: EdgeInsets.only(left: 10.w, bottom: 7.h),
+                margin: const EdgeInsets.only(left: 10, bottom: 7),
                 child: ImageList(
                   imageUrl: movies[index].posterPath!,
                   radius: 16,

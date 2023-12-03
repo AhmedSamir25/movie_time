@@ -16,7 +16,6 @@ class ImageList extends StatelessWidget {
         image: DecorationImage(image:
         NetworkImage(imageUrl),
         fit: BoxFit.fill,
-
         )
       ),
     );

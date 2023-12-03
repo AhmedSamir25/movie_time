@@ -37,11 +37,8 @@ class CastGridView extends StatelessWidget {
           return CustomErrorWidget(errMessage: state.errMessage);
         }else{
           return GridView.builder(
-            itemBuilder: (context, index) => const LoadingShimmer(
-              widthScreen: 0.9,
-              heightScreen: 0.35,
-            ),
-            itemCount:20,
+            itemBuilder: (context, index) => const AvatarShimer(),
+            itemCount:16,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),

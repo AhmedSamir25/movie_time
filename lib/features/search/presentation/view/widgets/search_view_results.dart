@@ -17,6 +17,9 @@ class SearchViewResults extends StatelessWidget {
       appBar: AppBar(
         title: const Center(child: Text('Search Results')),
         backgroundColor: appColor,
+        actions: [IconButton(onPressed:(){
+          Navigator.pop(context);
+        } , icon: const Icon(Icons.search))],
       ),
       body: BlocBuilder<SearchMoviesCubit , SearchMoviesState>(
       builder: (context, state) {

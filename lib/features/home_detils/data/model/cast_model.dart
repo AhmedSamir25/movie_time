@@ -36,7 +36,7 @@ class CastModel {
       name: json['name'],
       originalName: json['original_name']??'',
       popularity: json['popularity']??'',
-      profilePath: json['profile_path'] == null ?"https://img.freepik.com/free-photo/surprised-happy-bearded-man-shirt-pointing-away_171337-5021.jpg?w=740&t=st=1701533025~exp=1701533625~hmac=e86cc993f60544d9b39b539993b4a9fcd15f3e6919d481c50a765c7a8570af08":"https://www.themoviedb.org/t/p/w220_and_h330_face${json['profile_path']}",
+      profilePath: json['profile_path'] == null ?"https://img.freepik.com/free-photo/user-profile-icon-front-side_187299-39596.jpg?w=740&t=st=1701613754~exp=1701614354~hmac=1effee8ddfe85c497366a6f7e552532025c8986be27964631ccd249922163f4d":"https://www.themoviedb.org/t/p/w220_and_h330_face${json['profile_path']}",
       castId: json['cast_id'],
       character: json['character'],
       creditId: json['credit_id'],

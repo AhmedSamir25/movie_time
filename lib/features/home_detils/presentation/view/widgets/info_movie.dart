@@ -11,7 +11,7 @@ class InfoMovie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding:  EdgeInsets.only(top: 11.h),
+      padding: const EdgeInsets.only(top: 11),
       child: Row(
         children: [
           const Spacer(flex: 1,),

@@ -16,11 +16,11 @@ class HomeTabs extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TabBar(
-            labelPadding: EdgeInsets.only(right: 36.w),
+          const TabBar(
+            labelPadding:  EdgeInsets.only(right: 36),
             labelColor: textAppColor,
             indicatorColor: lineTabColor,
-            tabs: const [
+            tabs:  [
               Tab(text: 'Upcoming'),
               Tab(text: 'Top rated'),
               Tab(text: 'Populor'),
@@ -28,7 +28,7 @@ class HomeTabs extends StatelessWidget {
           ),
           SizedBox(
             width: double.maxFinite,
-            height: 260.h,
+            height: 235.h,
             child: const Expanded(
               child:  TabBarView(
                 children: [

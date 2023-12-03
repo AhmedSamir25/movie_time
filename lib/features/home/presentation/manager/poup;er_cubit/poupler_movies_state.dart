@@ -30,16 +30,3 @@ final class PouplerMoviesSuccess extends PouplerMoviesState {
 
   const PouplerMoviesSuccess(this.movies);
 }
-
-// final class PouplerMoviesInitial extends PouplerMoviesState {}
-// final class PopularMoviesInitial extends PouplerMoviesState {}
-// final class PopularMoviesFailure extends PouplerMoviesState {
-//   final String errMessage;
-
-//   const PopularMoviesFailure(this.errMessage);
-// }
-// final class PopularMoviesSuccess extends PouplerMoviesState {
-//   final List<MovieModel> movies;
-
-//   const PopularMoviesSuccess(this.movies);
-// }

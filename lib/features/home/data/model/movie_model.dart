@@ -33,7 +33,7 @@ class MovieModel {
       originalTitle: json['original_title'],
       overview: json['overview'],
       popularity: json['popularity'].toDouble(),
-      posterPath: json['poster_path'] == null ?"https://img.freepik.com/free-photo/surprised-happy-bearded-man-shirt-pointing-away_171337-5021.jpg?w=740&t=st=1701533025~exp=1701533625~hmac=e86cc993f60544d9b39b539993b4a9fcd15f3e6919d481c50a765c7a8570af08":"https://www.themoviedb.org/t/p/w220_and_h330_face${json['poster_path']}",
+      posterPath: json['poster_path'] == null ?"https://img.freepik.com/free-vector/yellow-danger-warning-sign-vector-art-illustration_56104-872.jpg?w=740&t=st=1701613349~exp=1701613949~hmac=07e8db21af9a1d775f97bac94c2e6c069da8aa66f549883f8df713d7ffda6d7b":"https://www.themoviedb.org/t/p/w220_and_h330_face${json['poster_path']}",
       releaseDate: json['release_date'],
       title: json['title'],
       voteAverage: json['vote_average'].toDouble(),

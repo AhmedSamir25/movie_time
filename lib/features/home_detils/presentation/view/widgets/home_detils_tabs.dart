@@ -12,22 +12,22 @@ class HomeDetailsTabs extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Padding(
-        padding:  EdgeInsets.only(top: 25.h,left: 20,right: 20),
+        padding: const EdgeInsets.only(top: 27,left: 20,right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TabBar(
-              labelPadding: EdgeInsets.symmetric(horizontal: 10.w),
+           const TabBar(
+              labelPadding: EdgeInsets.symmetric(horizontal: 10),
               labelColor: textAppColor,
               indicatorColor: lineTabColor,
-              tabs: const [
+              tabs:  [
                 Tab(text: 'About'),
                 Tab(text: 'cast'),
               ],
             ),
             SizedBox(
               width: double.maxFinite,
-              height: 250.h,
+              height: 320.h,
               child:  TabBarView(
                 children: [
                 ContectTabs(aboutMovie:aboutMovie ),
