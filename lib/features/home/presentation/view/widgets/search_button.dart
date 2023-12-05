@@ -9,7 +9,7 @@ class SearchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 320.w,
+      width: 345.w,
       height: 40.h,
           decoration: BoxDecoration(
             color: textAppColor,

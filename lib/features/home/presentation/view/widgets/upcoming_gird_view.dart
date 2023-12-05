@@ -102,7 +102,7 @@ class _TopRatedGridViewState extends State<UpcomingGridView>
           );
         } else if (state is UpcomingMovieFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
-        } else {
+        } else{
           return GridView.builder(
             itemBuilder: (context, index) => const LoadingShimmer(),
             itemCount: movies.length,

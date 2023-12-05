@@ -21,7 +21,7 @@ class HomeTabs extends StatelessWidget {
             labelColor: textAppColor,
             indicatorColor: lineTabColor,
             tabs:  [
-              Tab(text: 'Upcoming'),
+              Tab(text: 'Upcoming',),
               Tab(text: 'Top rated'),
               Tab(text: 'Populor'),
             ],

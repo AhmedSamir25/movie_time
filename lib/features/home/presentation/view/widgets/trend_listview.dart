@@ -43,7 +43,7 @@ class ListBuilderHome extends StatelessWidget {
                         left: 13.w,
                         child: Text(
                           (index + 1).toString(),
-                          style: StyleText.textStyle40.copyWith(
+                          style: StyleText.textStyle45.copyWith(
                             fontFamily: 'PT Serif',
                             foreground: Paint()
                               ..style = PaintingStyle.stroke

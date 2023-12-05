@@ -44,14 +44,3 @@ class CastModel {
     );
   }
 }
-
-
-
-// void main() {
-//   var jsonString = '';
-//   var jsonData = json.decode(jsonString);
-//     List<CastModel> castmovies = [];
-//     for (var castData in jsonData['cast']) {
-//     castmovies.add(CastModel.fromJson(castData));
-//     }
-// }

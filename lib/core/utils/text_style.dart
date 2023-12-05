@@ -19,11 +19,10 @@ abstract class StyleText {
     color: textAppColor,
     fontFamily: 'Roboto Slab',
   );
-  static TextStyle textStyle40 =  TextStyle(
+  static TextStyle textStyle45 =  TextStyle(
     fontSize: 45.sp,
     color: Colors.amberAccent,
     fontWeight: FontWeight.bold,
     fontFamily: 'Roboto Slab',
-    
   );
 }
