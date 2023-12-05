@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movietime/core/utils/color.dart';
-import 'package:movietime/core/utils/text_style.dart';
+import 'package:movietime/core/utils/style/color.dart';
+import 'package:movietime/core/utils/style/text_style.dart';
+
 import 'package:movietime/features/home/presentation/view/widgets/image_list.dart';
 
 class ListSearch extends StatelessWidget {

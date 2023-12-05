@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/core/utils/style/color.dart';
 
 abstract class StyleText {
    static TextStyle textStyle13 = TextStyle(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
-import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/core/utils/style/color.dart';
 import 'package:movietime/core/utils/widgets/custom_error_widget.dart';
 import 'package:movietime/core/utils/widgets/custom_loading.dart';
 import 'package:movietime/features/home/data/model/movie_model.dart';

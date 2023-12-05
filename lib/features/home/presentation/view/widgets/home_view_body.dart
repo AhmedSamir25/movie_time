@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movietime/core/router/router.dart';
-import 'package:movietime/core/utils/text_style.dart';
+import 'package:movietime/core/utils/style/text_style.dart';
 import 'package:movietime/features/home/presentation/view/widgets/custom_appbar.dart';
 import 'package:movietime/features/home/presentation/view/widgets/home_tabs.dart';
 import 'package:movietime/features/home/presentation/view/widgets/search_button.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movietime/core/router/router.dart';
 import 'package:movietime/core/services/service_locator.dart';
-import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/core/utils/style/color.dart';
 import 'package:movietime/features/home/data/repository/home_repo_impl.dart';
 import 'package:movietime/features/home/presentation/manager/poup;er_cubit/poupler_movies_cubit.dart';
 import 'package:movietime/features/home/presentation/manager/toprated_cubit/toprated_cubit.dart';

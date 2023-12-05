@@ -41,13 +41,3 @@ class MovieModel {
     );
   }
 }
-
-
-// // void main() {
-// //   var jsonString = '';
-// //   var jsonData = json.decode(jsonString);
-// //   List<MovieModel> movies = [];
-// //   for (var movieData in jsonData['results']) {
-// //     movies.add(MovieModel.fromJson(movieData));
-// //   }
-// // }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movietime/core/utils/text_style.dart';
+import 'package:movietime/core/utils/style/text_style.dart';
 import 'package:movietime/features/home_detils/presentation/view/widgets/iconand_text_actor.dart';
 
 class InformatiomActor extends StatelessWidget {

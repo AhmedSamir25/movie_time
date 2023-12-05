@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/core/utils/style/color.dart';
 import 'package:movietime/features/search/presentation/view/widgets/search_view_body.dart';
 
 class SearchView extends StatelessWidget {

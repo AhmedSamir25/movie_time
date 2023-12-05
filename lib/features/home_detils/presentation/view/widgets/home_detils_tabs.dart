@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/core/utils/style/color.dart';
 import 'package:movietime/features/home_detils/presentation/view/widgets/cast_gridview.dart';
 import 'package:movietime/features/home_detils/presentation/view/widgets/contect_tabs.dart';
 

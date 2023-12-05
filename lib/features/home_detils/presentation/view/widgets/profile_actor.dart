@@ -24,9 +24,7 @@ class _ProfileActorState extends State<ProfileActor> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: ProfileActorDetils(
-        
-      ),
+      body: ProfileActorDetils(),
     );
   }
 }

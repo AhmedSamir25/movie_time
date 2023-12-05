@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movietime/core/utils/text_style.dart';
+import 'package:movietime/core/utils/style/text_style.dart';
 
 
 class CustomErrorWidget extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movietime/core/utils/color.dart';
+import 'package:movietime/core/utils/style/color.dart';
 import 'package:movietime/features/home/presentation/view/widgets/populre_gridview.dart';
 import 'package:movietime/features/home/presentation/view/widgets/toprated_gird_view.dart';
 import 'package:movietime/features/home/presentation/view/widgets/upcoming_gird_view.dart';
